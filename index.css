@@ -26,6 +26,32 @@ h1, .home-description {
     bottom: 20px;
 }
 
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    width: 500px;
+}
+
+.container-item {
+    margin-right: auto;
+    margin-left: 20px;
+}
+.menu-icon {
+    height: 90px;
+    width: 70px;
+}
+
+.add-btn {
+    padding: 15px;
+    border-radius: 100%;
+    border-style: none;
+    background-color: white;
+    border-color: gray;
+    border: 1px solid gray;
+}
+
 
 
 
