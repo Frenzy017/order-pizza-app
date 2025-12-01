@@ -42,8 +42,11 @@ h1,
   margin-left: 20px;
 }
 .menu-icon {
-  height: 89px;
-  width: 70px;
+  font-size: 70px;
+}
+
+.food-price {
+  font-weight: bold;
 }
 
 .add-btn {
