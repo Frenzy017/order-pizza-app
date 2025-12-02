@@ -23,14 +23,29 @@ function renderMenu() {
 
 renderMenu();
 
+function addFood() {
+  const addButtonElements = document.querySelectorAll(".add-btn");
+  const foodItemElement = document.querySelector(".menu-item")
+  const cartSectionElement = document.getElementById("cart")
+
+  addButtonElements.forEach((button) => {
+    button.addEventListener("click", (e) => {
+      console.log(foodItemElement)
+      
+    })
+  })
+}
+
+addFood();
+
 function cart() {
-  const addButtonElement = document.getElementById("add-btn");
   const foodIdElement = document.getElementById("food-id");
   const foodNameElement = document.getElementById("food-name");
   const foodPriceElement = document.getElementById("food-price");
 
-
   let totalPrice = 0;
+
+
 
 
 
