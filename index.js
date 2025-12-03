@@ -23,20 +23,31 @@ function renderMenu() {
 
 renderMenu();
 
-function addFood() {
+function handleButtonClicks() {}
+
+function addFoodToCart() {
   const addButtonElements = document.querySelectorAll(".add-btn");
-  const foodItemElement = document.querySelector(".menu-item")
-  const cartSectionElement = document.getElementById("cart")
+
+  // Obtains the parent element, need to get all individual properties
+  // Create a new <section> with the new data
 
   addButtonElements.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      console.log(foodItemElement)
-      
-    })
-  })
+    button.addEventListener("click", (event) => {
+      let foodObject = event.target.parentElement;
+      let foodObjectProperties = foodObject.children[1];
+
+      let foodPrice = Number(
+        foodObjectProperties
+          .querySelector(".food-price")
+          .textContent.replace("$", "")
+      );
+
+      console.log(foodPrice);
+    });
+  });
 }
 
-addFood();
+addFoodToCart();
 
 function cart() {
   const foodIdElement = document.getElementById("food-id");
@@ -44,12 +55,4 @@ function cart() {
   const foodPriceElement = document.getElementById("food-price");
 
   let totalPrice = 0;
-
-
-
-
-
-
-
-
 }
