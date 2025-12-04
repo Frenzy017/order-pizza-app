@@ -9,7 +9,7 @@ function renderMenu() {
     <div class="menu-item" id=${food.id}>
       <div class="menu-icon">${food.emoji}</div>
      <div class="container-item">
-        <h2 id="food-name">${food.name}</h2>
+        <h2 class = "food-name">${food.name}</h2>
         <p class="ingredients">${food.ingredients}</p>
         <p class="food-price" id="food-price">$${food.price}</p>
      </div>
@@ -23,36 +23,38 @@ function renderMenu() {
 
 renderMenu();
 
-function handleButtonClicks() {}
+let cartItems = [];
 
-function addFoodToCart() {
+function addToCart(food) {
+  let name = food.name;
+  let price = food.price;
+
+  if (!cartItems.includes(name)) {
+    cartItems.push(name, price);
+  }
+
+  if
+
+
+
+  console.log(cartItems);
+}
+
+function handleAddButtonClick() {
   const addButtonElements = document.querySelectorAll(".add-btn");
-
-  // Obtains the parent element, need to get all individual properties
-  // Create a new <section> with the new data
 
   addButtonElements.forEach((button) => {
     button.addEventListener("click", (event) => {
-      let foodObject = event.target.parentElement;
-      let foodObjectProperties = foodObject.children[1];
+      const menuItemElement = event.target.closest(".menu-item");
+      const foodId = Number(menuItemElement.id);
 
-      let foodPrice = Number(
-        foodObjectProperties
-          .querySelector(".food-price")
-          .textContent.replace("$", "")
-      );
+      const food = menuItems.find((item) => item.id === foodId);
 
-      console.log(foodPrice);
+      if (food) {
+        addToCart(food);
+      }
     });
   });
 }
 
-addFoodToCart();
-
-function cart() {
-  const foodIdElement = document.getElementById("food-id");
-  const foodNameElement = document.getElementById("food-name");
-  const foodPriceElement = document.getElementById("food-price");
-
-  let totalPrice = 0;
-}
+handleAddButtonClick();
