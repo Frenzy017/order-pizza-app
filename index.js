@@ -1,6 +1,26 @@
 import { menuArray as menuItems } from "./data.js";
 
-function renderMenu() {
+let cartItems = [];
+
+const addToCart = (food) => {
+  const { name, price } = food;
+
+  if (!cartItems.includes(name)) {
+    cartItems.push(name, price);
+    console.log(cartItems);
+
+  } 
+};
+
+const handleAddButtonClick = (foodId) => {
+  const food = menuItems.find((item) => item.id === foodId);
+
+  if (food) {
+    addToCart(food);
+  }
+};
+
+const renderMenu = () => {
   const mainElement = document.getElementById("menu");
 
   mainElement.innerHTML = menuItems
@@ -13,48 +33,19 @@ function renderMenu() {
         <p class="ingredients">${food.ingredients}</p>
         <p class="food-price" id="food-price">$${food.price}</p>
      </div>
-        <button class="add-btn" id="add-btn">+</button>
+      <button class="add-btn" data-food-id="${food.id}">+</button>
     </div>
     <hr />
       `
     )
     .join("");
-}
 
-renderMenu();
-
-let cartItems = [];
-
-function addToCart(food) {
-  let name = food.name;
-  let price = food.price;
-
-  if (!cartItems.includes(name)) {
-    cartItems.push(name, price);
-  }
-
-  if
-
-
-
-  console.log(cartItems);
-}
-
-function handleAddButtonClick() {
-  const addButtonElements = document.querySelectorAll(".add-btn");
-
-  addButtonElements.forEach((button) => {
-    button.addEventListener("click", (event) => {
-      const menuItemElement = event.target.closest(".menu-item");
-      const foodId = Number(menuItemElement.id);
-
-      const food = menuItems.find((item) => item.id === foodId);
-
-      if (food) {
-        addToCart(food);
+    mainElement.addEventListener("click", (e) => {
+      if (e.target.classList.contains("add-btn")) {
+        const foodId = parseInt(e.target.dataset.foodId);
+        handleAddButtonClick(foodId);
       }
-    });
   });
 }
 
-handleAddButtonClick();
+renderMenu();
