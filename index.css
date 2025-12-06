@@ -183,8 +183,9 @@ input::placeholder {
   padding-left: 10px;
 }
 
-.pay {
+.pay-btn {
   background-color: #16DB99;
+  height: 70px;
   color: white;
   font-weight: bold;
   border: none;
