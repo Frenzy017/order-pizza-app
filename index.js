@@ -25,7 +25,7 @@ const handleAddToCart = (food) => {
 };
 
 const handleAccumulatePrice = (name, price) => {
-  let foundFood = cartItems.find((item) => item.name === name);
+  const foundFood = cartItems.find((item) => item.name === name);
   foundFood.price += price;
 };
 
@@ -33,15 +33,29 @@ const orderTransaction = () => {
   const formContainerElement = document.getElementById("form-container");
 
   formContainerElement.innerHTML = `
-    <form>
+    <form id="form">
       <h4>Enter card details</h4>
-      <input type="text" id="name" placeholder="Enter your name" name="fname" required/>
-      <input type="text" id="card" placeholder="Enter card number" name="card" required/>
-      <input type="text" id="cvv" placeholder="Enter CVV" name="cvv" required/>
-      <input class="pay" type="submit" value="Pay" />
+      <input type="text" id="name" placeholder="Enter your name" name="fname" value = "" required/>
+      <input type="text" id="card" placeholder="Enter card number" name="card" value = "" required/>
+      <input type="text" id="cvv" placeholder="Enter CVV" name="cvv" required value = ""/>
+       <button class="pay-btn">Pay</button>
     </form>
   `;
   formContainerElement.classList.add("show");
+};
+
+const completedOrderMessage = () => {
+  const formContainerElement = document.getElementById("form-container");
+  const formElement = document.getElementById("form");
+
+  const newForm = new FormData(formElement);
+  const getName = newForm.get("fname");
+
+  formContainerElement.innerHTML = `
+  <div class="completed-order-message"> Thanks,${getName}! Your order is on its way!</div>  
+  `;
+  cartItems = [];
+  renderCart();
 };
 
 const renderCart = () => {
@@ -85,6 +99,7 @@ const renderCart = () => {
 const renderMenu = () => {
   const menuElement = document.getElementById("menu");
   const cartElement = document.getElementById("cart");
+  const formContainerElement = document.getElementById("form-container");
 
   menuElement.innerHTML = menuItems
     .map(
@@ -120,6 +135,13 @@ const renderMenu = () => {
   cartElement.addEventListener("click", (e) => {
     if (e.target.classList.contains("complete-order-btn")) {
       orderTransaction();
+    }
+  });
+
+  formContainerElement.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (e.target.classList.contains("pay-btn")) {
+      completedOrderMessage();
     }
   });
 };
