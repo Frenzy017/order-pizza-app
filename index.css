@@ -60,3 +60,133 @@ h1,
   border: 1px solid gray;
   cursor: pointer;
 }
+
+.cart-container {
+  font-family: "Smythe", system-ui;
+}
+
+.cart-title {
+  font-weight: normal;
+  text-align: center;
+}
+
+.cart-items {
+  width: 500px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item-name {
+  font-size: 27px;
+}
+
+.cart-item-info {
+  display: flex;
+  flex: auto;
+}
+
+.cart-item-price {
+  align-self: flex-end;
+  font-size: 20px;
+}
+
+.remove-btn {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 12px;
+  padding-left: 10px;
+  color: #bbbbbb;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.cart-divider {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 2px;
+  background-color: #000000;
+  border: none;
+}
+
+.cart-total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.total-label {
+  font-size: 28px;
+}
+
+.total-price {
+  font-size: 20px;
+}
+
+.complete-order-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  background-color: #16db99;
+  color: white;
+  border: none;
+  margin-top: 50px;
+  width: 500px;
+  height: 46px;
+}
+
+.form-container {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45); /* dims the page */
+  z-index: 2;
+}
+
+.form-container.show {
+  display: flex;
+}
+
+form {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 20px;
+  width: 400px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+h4 {
+  text-align: center;
+}
+
+input {
+  width: 400px;
+  height: 65px;
+}
+
+input::placeholder {
+  padding-left: 10px;
+}
+
+.pay {
+  background-color: #16DB99;
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
