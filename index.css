@@ -191,3 +191,16 @@ input::placeholder {
   border: none;
 }
 
+.completed-order-message {
+  font-family: "Smythe", system-ui;
+  font-size: 32px;
+  color: #0d7377;
+  background-color: #d0f0e8;
+  border: 3px solid #000000;
+  padding: 40px;
+  text-align: center;
+  border-radius: 4px;
+  width: 500px;
+  box-sizing: border-box;
+}
+
